@@ -58,7 +58,7 @@ namespace BlackJackOstatnieStarcie
             Console.WriteLine("SHUFFLE");
         }
 
-        public int GetV() { Shuffle(); return cardV; }
+        public int GetV() { DealCard(talia); return cardV; }
 
         public Model()
         {

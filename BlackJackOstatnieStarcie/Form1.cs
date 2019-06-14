@@ -16,12 +16,12 @@ namespace BlackJackOstatnieStarcie
         {
             get
             {
-                return int.Parse(labelCP.Text);
+                return int.Parse(labelPP.Text);
             }
             set
             {
 
-                labelPP.Text = $"{value}";
+                labelPP.Text = $"{int.Parse(labelPP.Text)+value}";
             }
 
         }
@@ -47,7 +47,7 @@ namespace BlackJackOstatnieStarcie
 
         private void ButtonHit_Click(object sender, EventArgs e)
         {
-            Console.WriteLine("CodoKurwy");
+
             Hit?.Invoke();
         }
 
@@ -56,7 +56,7 @@ namespace BlackJackOstatnieStarcie
         private void ButtonStand_Click(object sender, EventArgs e)
         {
             Stand?.Invoke();
-            Console.WriteLine("JaPierdole");
+
         }
     }
 }
