@@ -24,7 +24,7 @@ namespace BlackJackOstatnieStarcie
             }
         }
 
-        public int PValueStart
+        public int PValueConst
         {
             get
             {

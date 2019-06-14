@@ -10,25 +10,56 @@ namespace BlackJackOstatnieStarcie
     class Model
     {
         int wins = 0;
-        
-        static int[] talia = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
-        int round = -2;
-       
+        //static int numOfCards = 0;
+        //static int call = 0;
+        //static int call = 0;
+        static int[] talia = { 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
+        //int cardV;
         int handValue = 0;
-        int pcHandValue=0;
-
-        public int getRound() { return round; }
-        public void zeroRound() { round = -2; }
-
-
+        int pcHandValue = 0;
         public int GetHandValue() { return (handValue); }
         public int PCGetHandValue() { return pcHandValue; }
 
-        public void zeroHandValue() {handValue = 0;}
+        public int checkPlayerHand()
+        {
+            if (handValue == 21)
+            {
+                return 1;
+            }
+            else if (handValue > 21)
+            {
+                return 2;
+
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        public int checkPCHand()
+        {
+            if (pcHandValue == 21)
+            {
+                return 1;
+            }
+            else if (pcHandValue > 21)
+            {
+                return 2;
+
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        //public void changehandvalue() { handValue += cardV; }
+        public void zeroHandValue() { handValue = 0; }
         public void zeroPCHandValue() { pcHandValue = 0; }
         public void incrementWins() { wins += 1; }
         int getWins() { return wins; }
 
+
+        //public int getNumOfCards() { return numOfCards; }
 
         public int RandomNumber()
         {
@@ -36,78 +67,57 @@ namespace BlackJackOstatnieStarcie
             return random.Next(0, 13);
         }
 
-       
-        public int[] getDeck() { return talia; }
 
+        public int[] getDeck() { return talia; }
         public void DealCard()
         {
-            
+            //int r = RandomNumber(0, 3);
 
-            handValue = talia[RandomNumber()];
-
-            
+            handValue += talia[RandomNumber()];
+            // handValue = talia[RandomNumber()];
             Console.WriteLine("Card dealt");
-            if (getRound() !=0 && GetHandValue() > 21)
-            {
-                zeroHandValue(); zeroPCHandValue(); MessageBox.Show("BUST! You loose");
-
-            }
 
         }
-            
         public void DealPCCard()
         {
-            pcHandValue = talia[RandomNumber()];
-            Console.WriteLine("Card dealt");
-            if (PCGetHandValue() > 21)
-            {
-                zeroHandValue(); zeroPCHandValue(); MessageBox.Show("BUST! You win");
-                incrementWins();
+            //int r = RandomNumber(0, 3);
 
-            }
+            pcHandValue += talia[RandomNumber()];
+
+            //pcHandValue = talia[RandomNumber()];
+            Console.WriteLine("Card dealt");
 
         }
 
+
+        //public int GetV() { DealCard(); return cardV; }
         public Model()
         {
-            handValue = 0;
-            pcHandValue = 0;
-            DealPCCard();
-            DealCard();
-            DealCard();
+
+            // DealPCCard();
+            // DealCard();
+            // DealCard();
             Console.WriteLine("SHUFFLE");
-        }       
+        }
     }
 
     class Game
     {
-        int viewscore = 0;
-        int pcViewScore = 0;
         static Model player;
         static Model computer;
-
         static bool stand = false;
         public bool getStand() { return stand; }
-        
+
         public void ChangeStand(bool haba) { stand = haba; }
 
         public Game()
         {
-            ChangeStand(false);
             computer = new Model();
             player = new Model();
-            computer.zeroPCHandValue();
-            player.zeroHandValue();
-            if (player.GetHandValue() == 22 && player.getRound() == 0) { player.zeroHandValue(); computer.zeroPCHandValue(); player.incrementWins(); MessageBox.Show("BLACKJACK!");}
-            if (stand == true)
-            {
-                computer.DealPCCard();
-                while (computer.PCGetHandValue() < player.GetHandValue()) computer.DealPCCard();
-                if (computer.PCGetHandValue() == player.GetHandValue()) { MessageBox.Show("Draw!"); computer.zeroPCHandValue(); player.zeroHandValue(); }
-                else if ((computer.PCGetHandValue() > player.GetHandValue()) && (computer.PCGetHandValue() < 22)) { MessageBox.Show("You loose!"); computer.zeroPCHandValue(); player.zeroHandValue(); }
-                else {  MessageBox.Show("You win!"); computer.zeroPCHandValue(); player.zeroHandValue(); player.incrementWins(); }
-            }
-            
+            if (player.GetHandValue() == 22) player.incrementWins();
+
+
+
         }
-    } 
+    }
 }
