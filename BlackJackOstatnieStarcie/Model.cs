@@ -55,16 +55,17 @@ namespace BlackJackOstatnieStarcie
 
             cardV = t.ElementAt(r);
             talia.RemoveAt(r);
+            Console.WriteLine("SHUFFLE");
         }
 
-        public int GetV() { return cardV; }
+        public int GetV() { Shuffle(); return cardV; }
 
         public Model()
         {
             if (call == 0) Shuffle();
             call += 1;
 
-            DealCard(talia);
+        // DealCard(talia);
 
             Console.WriteLine("Sukces");
 

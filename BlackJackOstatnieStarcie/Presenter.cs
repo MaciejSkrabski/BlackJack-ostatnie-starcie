@@ -23,6 +23,7 @@ namespace BlackJackOstatnieStarcie
         {
 
             view.PValue = model.GetV();
+            Console.WriteLine("HIIIIIT");
         }
 
         private void View_Stand()
