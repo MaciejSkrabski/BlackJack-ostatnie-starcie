@@ -45,6 +45,8 @@ namespace BlackJackOstatnieStarcie
             {
                 labelWins.Text = $"{int.Parse(labelWins.Text) + 1}";
             }
+            get
+                { return int.Parse(labelWins.Text); }
         }
 
         public event Action Hit;

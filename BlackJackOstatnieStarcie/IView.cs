@@ -10,7 +10,7 @@ namespace BlackJackOstatnieStarcie
     {
         int CValue { get; set; }
         int PValue { get; set; }
-        int GR { set; }
+        int GR { get;  set; }
         event Action Hit;
         event Action Stand;
     }

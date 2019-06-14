@@ -9,10 +9,16 @@ namespace BlackJackOstatnieStarcie
 {
     class Model
     {
+        int wins = 0;
+        public void incrementWins() { wins += 1; }
+        int getWins() { return wins; }
         static int call = 0;
         static List<int> talia = new List<int>();
         int cardV;
-        int handValue;
+        int handValue = 0;
+        public void changehandvalue() { handValue += cardV; }
+        public void zeroHandValue() {handValue = 0;}
+        
         static int numOfCards = 0;
         public int getNumOfCards() { return numOfCards; }
         public void Shuffle()
@@ -84,16 +90,21 @@ namespace BlackJackOstatnieStarcie
         {
             computer = new Model();
             player = new Model();
-            while (player.getNumOfCards() > 0)
-            {
+
+            if (player.getNumOfCards() > 5)
+            { 
+                
+            
 
                 while (getStand() == false)
                 {
                     
-                    computer.DealCard(player.getDeck());
-                    player.DealCard(player.getDeck());
-                    player.DealCard(player.getDeck());
-
+                    computer.DealCard(computer.getDeck());
+                    //player.DealCard(player.getDeck());
+                    //player.DealCard(player.getDeck());
+                    if (player.GetV() == 22) player.incrementWins();
+                   // player.zeroHandValue();
+                    //computer.zeroHandValue();
 
                 }
             }
