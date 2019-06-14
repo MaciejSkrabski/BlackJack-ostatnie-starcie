@@ -17,10 +17,15 @@ namespace BlackJackOstatnieStarcie
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
 
-                Model model = new Model();
                 IView view = new Form1();
-                Presenter presenter = new Presenter(view, model);
-                Application.Run((Form)view);
+                Model model = new Model();
+                Model AI = new Model();
+                Game game = new Game();
+
+                Presenter presenter = new Presenter(view, model, AI, game);
+            
+            Application.Run((Form)view);
+            
             }
         
     }

@@ -20,10 +20,8 @@ namespace BlackJackOstatnieStarcie
             }
             set
             {
-
                 labelPP.Text = $"{int.Parse(labelPP.Text)+value}";
             }
-
         }
 
         public int CValue
@@ -34,22 +32,19 @@ namespace BlackJackOstatnieStarcie
             }
             set
             {
-                labelPP.Text = $"{int.Parse(labelPP.Text) + value}";
+                labelCP.Text = $"{int.Parse(labelCP.Text) + value}";
             }
 
         }
 
-        public int CLeft
+
+
+        public int GR
         {
-            get
-            {
-                return int.Parse(labelNumCL.Text);
-            }
             set
             {
-                labelCP.Text = $"{value}";
+                labelWins.Text = $"{int.Parse(labelWins.Text) + 1}";
             }
-
         }
 
         public event Action Hit;
@@ -61,7 +56,6 @@ namespace BlackJackOstatnieStarcie
 
         private void ButtonHit_Click(object sender, EventArgs e)
         {
-
             Hit?.Invoke();
         }
 
@@ -70,7 +64,6 @@ namespace BlackJackOstatnieStarcie
         private void ButtonStand_Click(object sender, EventArgs e)
         {
             Stand?.Invoke();
-
         }
     }
 }

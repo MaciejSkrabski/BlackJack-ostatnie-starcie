@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace BlackJackOstatnieStarcie
 {
@@ -11,8 +12,9 @@ namespace BlackJackOstatnieStarcie
         static int call = 0;
         static List<int> talia = new List<int>();
         int cardV;
-
-
+        int handValue;
+        static int numOfCards = 0;
+        public int getNumOfCards() { return numOfCards; }
         public void Shuffle()
         {
             talia.Add(11); talia.Add(11); talia.Add(11); talia.Add(11);
@@ -43,7 +45,7 @@ namespace BlackJackOstatnieStarcie
 
             talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
         }
-
+        public List<int> getDeck() { return talia; }
         public void DealCard(List<int> t)
         {
             int RandomNumber(int min, int max)
@@ -55,22 +57,49 @@ namespace BlackJackOstatnieStarcie
 
             cardV = t.ElementAt(r);
             talia.RemoveAt(r);
-            Console.WriteLine("SHUFFLE");
+            numOfCards = talia.Count();
+            Console.WriteLine("Card dealt");
         }
-
         public int GetV() { DealCard(talia); return cardV; }
-
         public Model()
         {
+            numOfCards = talia.Count();
             if (call == 0) Shuffle();
             call += 1;
+            Console.WriteLine("SHUFFLE");
+            
+        }       
+    }
 
-        // DealCard(talia);
+    class Game
+    {
+        static Model player;
+        static Model computer;
+        static bool stand = false;
+        public bool getStand() { return stand; }
+        
+        public void ChangeStand(bool haba) { stand = haba; }
 
-            Console.WriteLine("Sukces");
+        public Game()
+        {
+            computer = new Model();
+            player = new Model();
+            while (player.getNumOfCards() > 0)
+            {
+
+                while (getStand() == false)
+                {
+                    
+                    computer.DealCard(player.getDeck());
+                    player.DealCard(player.getDeck());
+                    player.DealCard(player.getDeck());
+
+
+                }
+            }
+
+
 
         }
-
-        
-    }
+    } 
 }
