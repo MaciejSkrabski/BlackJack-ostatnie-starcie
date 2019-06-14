@@ -34,10 +34,24 @@ namespace BlackJackOstatnieStarcie
             }
             set
             {
+                labelPP.Text = $"{int.Parse(labelPP.Text) + value}";
+            }
+
+        }
+
+        public int CLeft
+        {
+            get
+            {
+                return int.Parse(labelNumCL.Text);
+            }
+            set
+            {
                 labelCP.Text = $"{value}";
             }
 
         }
+
         public event Action Hit;
         public event Action Stand;
         public Form1()

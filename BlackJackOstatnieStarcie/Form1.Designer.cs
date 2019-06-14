@@ -34,6 +34,12 @@
             this.buttonStand = new System.Windows.Forms.Button();
             this.labelCP = new System.Windows.Forms.Label();
             this.labelPP = new System.Windows.Forms.Label();
+            this.labelCL = new System.Windows.Forms.Label();
+            this.labelNumCL = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.labelWins = new System.Windows.Forms.Label();
+            this.labelLosses = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelC
@@ -42,9 +48,9 @@
             this.labelC.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.labelC.Location = new System.Drawing.Point(12, 79);
             this.labelC.Name = "labelC";
-            this.labelC.Size = new System.Drawing.Size(133, 31);
+            this.labelC.Size = new System.Drawing.Size(148, 31);
             this.labelC.TabIndex = 0;
-            this.labelC.Text = "Computer";
+            this.labelC.Text = "Computer: ";
             // 
             // labelY
             // 
@@ -52,9 +58,9 @@
             this.labelY.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
             this.labelY.Location = new System.Drawing.Point(81, 110);
             this.labelY.Name = "labelY";
-            this.labelY.Size = new System.Drawing.Size(62, 31);
+            this.labelY.Size = new System.Drawing.Size(77, 31);
             this.labelY.TabIndex = 1;
-            this.labelY.Text = "You";
+            this.labelY.Text = "You: ";
             // 
             // buttonHit
             // 
@@ -80,7 +86,7 @@
             // 
             this.labelCP.AutoSize = true;
             this.labelCP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.labelCP.Location = new System.Drawing.Point(149, 79);
+            this.labelCP.Location = new System.Drawing.Point(164, 79);
             this.labelCP.Name = "labelCP";
             this.labelCP.Size = new System.Drawing.Size(29, 31);
             this.labelCP.TabIndex = 4;
@@ -90,17 +96,79 @@
             // 
             this.labelPP.AutoSize = true;
             this.labelPP.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
-            this.labelPP.Location = new System.Drawing.Point(149, 110);
+            this.labelPP.Location = new System.Drawing.Point(164, 110);
             this.labelPP.Name = "labelPP";
             this.labelPP.Size = new System.Drawing.Size(29, 31);
             this.labelPP.TabIndex = 5;
             this.labelPP.Text = "0";
+            // 
+            // labelCL
+            // 
+            this.labelCL.AutoSize = true;
+            this.labelCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.labelCL.Location = new System.Drawing.Point(97, 35);
+            this.labelCL.Name = "labelCL";
+            this.labelCL.Size = new System.Drawing.Size(155, 31);
+            this.labelCL.TabIndex = 6;
+            this.labelCL.Text = "Cards Left: ";
+            // 
+            // labelNumCL
+            // 
+            this.labelNumCL.AutoSize = true;
+            this.labelNumCL.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F);
+            this.labelNumCL.Location = new System.Drawing.Point(258, 35);
+            this.labelNumCL.Name = "labelNumCL";
+            this.labelNumCL.Size = new System.Drawing.Size(29, 31);
+            this.labelNumCL.TabIndex = 7;
+            this.labelNumCL.Text = "0";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 205);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(34, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Wins:";
+            // 
+            // labelWins
+            // 
+            this.labelWins.AutoSize = true;
+            this.labelWins.Location = new System.Drawing.Point(53, 205);
+            this.labelWins.Name = "labelWins";
+            this.labelWins.Size = new System.Drawing.Size(13, 13);
+            this.labelWins.TabIndex = 9;
+            this.labelWins.Text = "0";
+            // 
+            // labelLosses
+            // 
+            this.labelLosses.AutoSize = true;
+            this.labelLosses.Location = new System.Drawing.Point(149, 205);
+            this.labelLosses.Name = "labelLosses";
+            this.labelLosses.Size = new System.Drawing.Size(13, 13);
+            this.labelLosses.TabIndex = 11;
+            this.labelLosses.Text = "0";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(100, 205);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 13);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Losses:";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(352, 227);
+            this.Controls.Add(this.labelLosses);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.labelWins);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelNumCL);
+            this.Controls.Add(this.labelCL);
             this.Controls.Add(this.labelPP);
             this.Controls.Add(this.labelCP);
             this.Controls.Add(this.buttonStand);
@@ -122,6 +190,12 @@
         private System.Windows.Forms.Button buttonStand;
         private System.Windows.Forms.Label labelCP;
         private System.Windows.Forms.Label labelPP;
+        private System.Windows.Forms.Label labelCL;
+        private System.Windows.Forms.Label labelNumCL;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label labelWins;
+        private System.Windows.Forms.Label labelLosses;
+        private System.Windows.Forms.Label label3;
     }
 }
 
