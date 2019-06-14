@@ -24,6 +24,18 @@ namespace BlackJackOstatnieStarcie
             }
         }
 
+        public int PValueStart
+        {
+            get
+            {
+                return int.Parse(labelPP.Text);
+            }
+            set
+            {
+                labelPP.Text = $"{value}";
+            }
+        }
+
         public int CValue
         {
             get

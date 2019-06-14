@@ -14,20 +14,23 @@ namespace BlackJackOstatnieStarcie
 
         public Presenter(IView view, Model model, Game game)
         {
-            this.game = new Game();
-            
-            this.view = view;
-            this.model = model;
-            this.view.Hit += View_Hit;
-            this.view.Stand += View_Stand;
+            //while (true)
+            //{
+                this.game = new Game();
 
-            
+                this.view = view;
+                this.model = model;
+                this.view.Hit += View_Hit;
+                this.view.Stand += View_Stand;
+                view.PValue = model.GetHandValue();
+                view.CValue = model.PCGetHandValue();
+            //}
         }
 
         public void View_Hit()
         {
             model.DealCard();
-            view.PValue = model.GetHandValue();
+            view.PValue += model.GetHandValue();
             Console.WriteLine("HIT");
 
         }
@@ -35,7 +38,7 @@ namespace BlackJackOstatnieStarcie
         public void View_HitC()
         {
             model.DealPCCard();
-            view.CValue = model.PCGetHandValue();
+            view.CValue += model.PCGetHandValue();
 
             Console.WriteLine("HIT");
         }
