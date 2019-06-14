@@ -10,52 +10,63 @@ namespace BlackJackOstatnieStarcie
     class Model
     {
         int wins = 0;
-        static int numOfCards = 0;
-        static int call = 0;
+        //static int numOfCards = 0;
+        //static int call = 0;
+        //static int call = 0;
         static int[] talia = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
         //int cardV;
         int handValue = 0;
+        int pcHandValue=0;
         public int GetHandValue() { return (handValue); }
+        public int PCGetHandValue() { return pcHandValue; }
 
 
         //public void changehandvalue() { handValue += cardV; }
         public void zeroHandValue() {handValue = 0;}
+        public void zeroPCHandValue() { pcHandValue = 0; }
         public void incrementWins() { wins += 1; }
         int getWins() { return wins; }
 
         
-        public int getNumOfCards() { return numOfCards; }
+        //public int getNumOfCards() { return numOfCards; }
 
         public int RandomNumber()
         {
             Random random = new Random();
-            return random.Next(0, 12);
+            return random.Next(0, 13);
         }
 
        
         public int[] getDeck() { return talia; }
         public void DealCard()
-        {
-
+        { 
             //int r = RandomNumber(0, 3);
 
-            handValue += talia.ElementAt(RandomNumber());
+            handValue += talia[RandomNumber()];
+           // handValue = talia[RandomNumber()];
             Console.WriteLine("Card dealt");
             
         }
+        public void DealPCCard()
+        {
+            //int r = RandomNumber(0, 3);
+
+            handValue = talia[RandomNumber()];
+            //pcHandValue = talia[RandomNumber()];
+            Console.WriteLine("Card dealt");
+
+        }
+
+        
         //public int GetV() { DealCard(); return cardV; }
         public Model()
         {
-            if (call == 0)
-            {
-                //Shuffle();
-                call = 1;
-            }
-            
-            numOfCards = talia.Count();
-
+            handValue = 0;
+            pcHandValue = 0;
+            DealPCCard();
+            DealCard();
+            DealCard();
             Console.WriteLine("SHUFFLE");
-            
         }       
     }
 
@@ -72,24 +83,7 @@ namespace BlackJackOstatnieStarcie
         {
             computer = new Model();
             player = new Model();
-
-           // if (player.getNumOfCards() > 5)
-           // { 
-                
-            
-
-               // while (getStand() == false)
-                //{
-                    
-                    computer.DealCard();
-                    player.DealCard();
-                    player.DealCard();
                     if (player.GetHandValue() == 22) player.incrementWins();
-                   // player.zeroHandValue();
-                    //computer.zeroHandValue();
-
-               // }
-           // }
 
 
 

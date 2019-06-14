@@ -22,7 +22,7 @@ namespace BlackJackOstatnieStarcie
                 Model AI = new Model();
                 Game game = new Game();
 
-                Presenter presenter = new Presenter(view, model, AI, game);
+                Presenter presenter = new Presenter(view, model, game);
             
             Application.Run((Form)view);
             

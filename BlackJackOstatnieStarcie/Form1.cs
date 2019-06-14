@@ -20,7 +20,7 @@ namespace BlackJackOstatnieStarcie
             }
             set
             {
-                labelPP.Text = $"{int.Parse(labelPP.Text)+value}";
+                labelPP.Text = $"{value}";
             }
         }
 
@@ -32,7 +32,7 @@ namespace BlackJackOstatnieStarcie
             }
             set
             {
-                labelCP.Text = $"{int.Parse(labelCP.Text) + value}";
+                labelCP.Text = $"{value}";
             }
 
         }

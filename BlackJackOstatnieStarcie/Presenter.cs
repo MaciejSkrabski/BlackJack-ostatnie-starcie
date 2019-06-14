@@ -10,38 +10,45 @@ namespace BlackJackOstatnieStarcie
     {
         IView view;
         Model model;
-        Model AI;
+        Game game;
 
-        public Presenter(IView view, Model model, Model AI, Game game)
+        public Presenter(IView view, Model model, Game game)
         {
+            this.game = new Game();
+            
             this.view = view;
-            this.AI = AI;
             this.model = model;
             this.view.Hit += View_Hit;
             this.view.Stand += View_Stand;
+
+            
         }
 
         public void View_Hit()
         {
+            model.DealCard();
             view.PValue = model.GetHandValue();
-            Console.WriteLine("HIIIIIT");
+            Console.WriteLine("HIT");
 
         }
 
         public void View_HitC()
         {
-            view.CValue = AI.GetHandValue();
+            model.DealPCCard();
+            view.CValue = model.PCGetHandValue();
 
-            Console.WriteLine("HIIIIIT");
+            Console.WriteLine("HIT");
         }
 
         public void View_Stand()
         {
 
             View_HitC();
+            //game.ChangeStand(true);
+            
             
 
-            Console.WriteLine("STAAAAAAAAND");
+            Console.WriteLine("STAND");
 
         }
     }
