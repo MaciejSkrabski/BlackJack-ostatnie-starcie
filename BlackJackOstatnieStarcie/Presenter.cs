@@ -30,7 +30,7 @@ namespace BlackJackOstatnieStarcie
 
         public void View_HitC()
         {
-            view.CValue = AI.GetV();
+            view.CValue = AI.GetHandValue();
 
             Console.WriteLine("HIIIIIT");
         }

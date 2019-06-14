@@ -13,12 +13,12 @@ namespace BlackJackOstatnieStarcie
         static int numOfCards = 0;
         static int call = 0;
         static int[] talia = {2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10, 11 };
-        int cardV;
+        //int cardV;
         int handValue = 0;
         public int GetHandValue() { return (handValue); }
 
 
-        public void changehandvalue() { handValue += cardV; }
+        //public void changehandvalue() { handValue += cardV; }
         public void zeroHandValue() {handValue = 0;}
         public void incrementWins() { wins += 1; }
         int getWins() { return wins; }
@@ -32,37 +32,7 @@ namespace BlackJackOstatnieStarcie
             return random.Next(0, 12);
         }
 
-        //public void Shuffle()
-        //{
-            
-        //    talia.Add(11); talia.Add(11); talia.Add(11); talia.Add(11);
-
-        //    talia.Add(1); talia.Add(1); talia.Add(1); talia.Add(1);
-
-        //    talia.Add(2); talia.Add(2); talia.Add(2); talia.Add(2);
-
-        //    talia.Add(3); talia.Add(3); talia.Add(3); talia.Add(3);
-
-        //    talia.Add(4); talia.Add(4); talia.Add(4); talia.Add(4);
-
-        //    talia.Add(5); talia.Add(5); talia.Add(5); talia.Add(5);
-
-        //    talia.Add(6); talia.Add(6); talia.Add(6); talia.Add(6);
-
-        //    talia.Add(7); talia.Add(7); talia.Add(7); talia.Add(7);
-
-        //    talia.Add(8); talia.Add(8); talia.Add(8); talia.Add(8);
-
-        //    talia.Add(9); talia.Add(9); talia.Add(9); talia.Add(9);
-
-        //    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
-
-        //    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
-
-        //    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
-
-        //    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
-        //}
+       
         public int[] getDeck() { return talia; }
         public void DealCard()
         {
@@ -73,7 +43,7 @@ namespace BlackJackOstatnieStarcie
             Console.WriteLine("Card dealt");
             
         }
-        public int GetV() { DealCard(); return cardV; }
+        //public int GetV() { DealCard(); return cardV; }
         public Model()
         {
             if (call == 0)
@@ -114,7 +84,7 @@ namespace BlackJackOstatnieStarcie
                     computer.DealCard();
                     player.DealCard();
                     player.DealCard();
-                    if (player.GetV() == 22) player.incrementWins();
+                    if (player.GetHandValue() == 22) player.incrementWins();
                    // player.zeroHandValue();
                     //computer.zeroHandValue();
 
@@ -126,3 +96,34 @@ namespace BlackJackOstatnieStarcie
         }
     } 
 }
+//public void Shuffle()
+//{
+
+//    talia.Add(11); talia.Add(11); talia.Add(11); talia.Add(11);
+
+//    talia.Add(1); talia.Add(1); talia.Add(1); talia.Add(1);
+
+//    talia.Add(2); talia.Add(2); talia.Add(2); talia.Add(2);
+
+//    talia.Add(3); talia.Add(3); talia.Add(3); talia.Add(3);
+
+//    talia.Add(4); talia.Add(4); talia.Add(4); talia.Add(4);
+
+//    talia.Add(5); talia.Add(5); talia.Add(5); talia.Add(5);
+
+//    talia.Add(6); talia.Add(6); talia.Add(6); talia.Add(6);
+
+//    talia.Add(7); talia.Add(7); talia.Add(7); talia.Add(7);
+
+//    talia.Add(8); talia.Add(8); talia.Add(8); talia.Add(8);
+
+//    talia.Add(9); talia.Add(9); talia.Add(9); talia.Add(9);
+
+//    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
+
+//    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
+
+//    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
+
+//    talia.Add(10); talia.Add(10); talia.Add(10); talia.Add(10);
+//}
