@@ -19,16 +19,16 @@ namespace BlackJackOstatnieStarcie
             this.view.Stand += View_Stand;
         }
 
-        private void View_Hit()
+        public void View_Hit()
         {
 
             view.PValue = model.GetV();
             Console.WriteLine("HIIIIIT");
         }
 
-        private void View_Stand()
+        public void View_Stand()
         {
-
+            Console.WriteLine("STAAAAAAAAND");
         }
     }
 }

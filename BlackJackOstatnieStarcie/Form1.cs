@@ -47,7 +47,7 @@ namespace BlackJackOstatnieStarcie
 
         private void ButtonHit_Click(object sender, EventArgs e)
         {
-
+            Console.WriteLine("CodoKurwy");
             Hit?.Invoke();
         }
 
@@ -56,6 +56,7 @@ namespace BlackJackOstatnieStarcie
         private void ButtonStand_Click(object sender, EventArgs e)
         {
             Stand?.Invoke();
+            Console.WriteLine("JaPierdole");
         }
     }
 }

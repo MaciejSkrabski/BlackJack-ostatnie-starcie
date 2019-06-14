@@ -7,20 +7,21 @@ using System.Windows.Forms;
 namespace BlackJackOstatnieStarcie
 {
     static class Program
-    {
-        /// <summary>
-        /// The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
-        {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+    { 
+            /// <summary>
+            /// The main entry point for the application.
+            /// </summary>
+            [STAThread]
+            static void Main()
+            {
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
 
-            Model model = new Model();
-            IView view = new Form1();
-            Presenter presenter = new Presenter(view, model);
-            Application.Run(new Form1());
-        }
+                Model model = new Model();
+                IView view = new Form1();
+                Presenter presenter = new Presenter(view, model);
+                Application.Run((Form)view);
+            }
+        
     }
 }
