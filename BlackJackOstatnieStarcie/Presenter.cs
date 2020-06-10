@@ -15,48 +15,55 @@ namespace BlackJackOstatnieStarcie
 
         public Presenter(IView view, Model model, Game game)
         {
-            this.game = new Game();
-
-            this.view = view;
-            this.model = model;
-            this.view.Hit += View_Hit;
-            this.view.Stand += View_Stand;
-            startGame();
-
+                this.game = new Game();
+                this.view = view;
+                this.model = model;
+                this.view.Hit += View_Hit;
+                this.view.Stand += View_Stand;
+                startGame();
         }
 
         public void startGame()
         {
-            model.DealCard();
-            model.DealCard();
-            model.DealPCCard();
-            view.PValue = model.GetHandValue();
-            view.CValue = model.PCGetHandValue();
-            checkWinner();
+            {
+                model.zero();
+                model.DealCard();
+                model.DealCard();
+                model.DealPCCard();
+                view.PValue = model.GetHandValue();
+                view.CValue = model.PCGetHandValue();
+                checkWinner();
+            }
         }
 
         private void checkWinner()
         {
-            if (model.checkPlayerHand() == 1)
+            switch ( model.checkPlayerHand() )
             {
-                MessageBox.Show("Wygrana gracz");
-                model.incrementWins();
-            }
-            else if (model.checkPlayerHand() == 2)
-            {
-                MessageBox.Show("Wygrana komputer");
-            }
-            else
-            {
-                if (model.checkPCHand() == 1)
-                {
-                   MessageBox.Show("Wygrana komputer");
-                }
-                else if (model.checkPCHand() == 2)
-                {
+                case 1:
                     MessageBox.Show("Wygrana gracz");
                     model.incrementWins();
-                }
+                    startGame();
+                    break;
+                case 2:
+                    MessageBox.Show("Wygrana komputer");
+                    startGame();
+                    break;
+                default:
+                    switch ( model.checkPCHand() )
+                    {
+                        case 1:
+                            MessageBox.Show("Wygrana komputer");
+                            break;
+                        case 2:
+                            MessageBox.Show("Wygrana gracz");
+                            model.incrementWins();
+                            startGame();
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
             }
         }
 
@@ -73,21 +80,19 @@ namespace BlackJackOstatnieStarcie
         {
             model.DealPCCard();
             view.CValue = model.PCGetHandValue();
-
             Console.WriteLine("HIT");
             checkWinner();
         }
 
         public void View_Stand()
         {
-            while (model.PCGetHandValue() < model.GetHandValue())
+            while (model.PCGetHandValue() < 17)
             {
                 View_HitC();
                 Console.WriteLine(model.PCGetHandValue());
             }
-            //game.ChangeStand(true);
 
-
+            model.Compare()
 
             Console.WriteLine("STAND");
 
